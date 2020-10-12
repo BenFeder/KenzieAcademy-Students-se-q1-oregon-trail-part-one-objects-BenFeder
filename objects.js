@@ -37,14 +37,13 @@ Wagon.prototype = {
     }
   },
   shouldQuarantine: function () {
-    // not working: returning undefined
-    this.passengers.some(function (Traveler) {
-      if (Traveler.isHealthy == false) {
+    for (let traveler = 0; traveler < this.passengers.length; traveler++) {
+      if (this.passengers[traveler].isHealthy == false) {
         return true;
-      } else {
-        return false;
       }
-    });
+    }
+
+    return false;
   },
   totalFood: function () {
     // not working: returning undefined
