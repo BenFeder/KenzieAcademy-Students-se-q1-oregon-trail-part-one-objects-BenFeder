@@ -46,10 +46,11 @@ Wagon.prototype = {
     return false;
   },
   totalFood: function () {
-    // not working: returning undefined
-    this.passengers.reduce(function (total, traveler) {
-      return total + traveler.food;
-    });
+    let totalFood = 0;
+    for (let traveler = 0; traveler < this.passengers.length; traveler++) {
+      totalFood += this.passengers[traveler].food;
+    }
+    return totalFood;
   },
 };
 
